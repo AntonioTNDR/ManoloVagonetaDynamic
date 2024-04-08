@@ -21,6 +21,7 @@ for(i=1;i<nItems;i++)
 for(j=0;j<last;j++)
 M[i,j]=MAX(M(i-1,j),M(i-1,j-Weight[i*])+Weight[i*])
 
-
+Computational cost=n^2
+This computational cost comes from the for loop which has a nested for loop inside.
 
 
