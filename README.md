@@ -9,3 +9,18 @@ M(i,j) = Maximum weight from a set "i" in a lorry with capacity "j";
 M(i,j) = 0 when i == 0;
 M(i,j) = M(i-1,j) when weight(i*) > j;
 M(i,j) = max(i-1,j) = max{M(i-1,j), (M(1-1,j - weight(i*)) + weight(i*))} otherwise;
+
+# PSEUDOCODE
+nItems;
+M[i][j] (Number of rows=nItems, Number of columns=15.000);
+W[i] (Number of elements=nItems);
+for(j=0;j<last;j++)
+M(0,j)=0;
+
+for(i=1;i<nItems;i++)
+for(j=0;j<last;j++)
+M[i,j]=MAX(M(i-1,j),M(i-1,j-Weight[i*])+Weight[i*])
+
+
+
+
