@@ -48,8 +48,8 @@ int main() {
         i++;
 
     }
-    int matrix[i+1][15];
-    int rows=i+1;
+    int matrix[i][15];
+    int rows=i;
     int columns=15;
     int price=dynamical(rows,columns,matrix,list,selected);
 }
