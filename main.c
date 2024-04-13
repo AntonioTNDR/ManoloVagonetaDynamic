@@ -5,17 +5,17 @@
 
 
 
-int dynamical(int rows,int columns,int matrix[rows][columns],int elements[],int selected[]){ //El array selected para guardar los pesos de los elementos seleccionados
-    int totalWeight; //Para ir sumando los pesos cuando seleccionemos los items
+int dynamical(int rows,int columns,int matrix[rows][columns], int elements[],int selected[]){ //El array selected para guardar los pesos de los elementos seleccionados
+    int totalWeight = 0; //Para ir sumando los pesos cuando seleccionemos los items
 //We initialize the first row
     for (int j=0;j<columns;j++){
         matrix[0][j]=0;
     }
 //Crear tabla
-    for (int i=1;i<rows;i++){
+    for (int i=1;i<=rows;i++){
         for (int j=0;j<columns;j++){
-            if(elements[i]>columns){matrix[i][j]=matrix[i-1][j];continue;}
-            matrix[i][j]= (matrix[i - 1][j] > matrix[i][j]) ? (matrix[i - 1][j]) : (matrix[i - 1][j-elements[i]]+ elements[i]);
+            if(elements[i-1]>j){matrix[i][j]=matrix[i-1][j];continue;}
+            matrix[i][j]= (matrix[i - 1][j] > matrix[i][j-elements[i-1]]+elements[i-1]) ? (matrix[i - 1][j]) : (matrix[i - 1][j-elements[i-1]]+ elements[i-1]);
         }
     }
     //Aqui todo el proceso de seleccionar
@@ -49,7 +49,14 @@ int main() {
 
     }
     int matrix[i][15];
-    int rows=i;
+    int rows=i+1;
     int columns=15;
     int price=dynamical(rows,columns,matrix,list,selected);
+    for (int j=0;j<rows;j++){
+        for (int k=0;k<columns;k++){
+            printf("%d ",matrix[j][k]);
+        }
+        printf("\n");
+    }
+    printf("%d",price);
 }
